@@ -37,7 +37,7 @@ log10(myNumber)
 log2(myNumber)
 ```
 ```{r echo=TRUE, include=TRUE}
-myNumber * 5
+myNumber * 3
 ```
 # Session Information
 
