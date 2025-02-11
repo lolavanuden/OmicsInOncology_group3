@@ -9,7 +9,8 @@ bibliography: bibliography.bib
 ---
 
 ```{r load libraries, include=TRUE, echo=FALSE}
-library(readr) # this package is for loading files (e.g. tsv, csv, ..)
+library(readr) 
+# this package is for loading files (e.g. tsv, csv, ..)
 
 ```
 
@@ -23,13 +24,16 @@ It describes the OD600 (growth) of the *Staphylococcus aureus* strain **JE2** in
 # Reading in Data and Plotting Growth Curves
 
 ```{r load data, eval=TRUE, include=FALSE, echo=FALSE}
-fN <- "JE_growth_final.txt" # us this txt file that is copy pasted spread sheet from excel tab separated 
+fN <- "JE_growth_final.txt" 
+# us this txt file that is copy pasted spread sheet from excel tab separated 
+#include=false does not show output
 print(fN)
 ```
 
 ```{r print data, eval=TRUE, include=TRUE, echo=FALSE}
 print("these are so called junks of code, you may include them to be shown in the rendered document (html here)
       each junk has a unique name next to it and then some additional arguments")
+#include true shows output
 print(fN)
 ```
 
@@ -45,4 +49,28 @@ pander::pander(sessionInfo())
 
 
 # References {-}
-#test
+
+#show the dataframe first
+```{r load data, eval=TRUE, include=TRUE, echo=FALSE}
+data <- read.table("JE_growth_final.txt", header=TRUE, sep ="\t") 
+#separated by tab characters, header true because first row contains column names
+head(data, 10) #this will only show 10 first rows
+tail(data, 10) #this will only show last 10 rows
+```
+
+#graph - basic plot
+```{r load data, eval=TRUE, include=TRUE, echo=FALSE}
+unique_medium <-unique(data$Growth_Medium)
+print(unique_medium)
+
+# Loop through each strain and plot separately
+for (medium in unique_medium) {
+  medium_data <- subset(data, Growth_Medium == medium)  # this separates the values for the three mediums into three different graphs
+  
+  
+par(mar = c(2, 2, 2, 2) + 0.1)  #this is adjusting the margins for the graph
+#the file JE_growth_final.txt has time and OD_600_blank_corrected as numerical values; we can make an x and y axis from that
+
+plot(data$Time, data$OD600_blank_corrected, type = "o", xlab = "Time (hours)", ylab = "Growth ( Corrected OD600)", main = paste( "Growth Medium:", medium), col = "#4D7769")
+}
+```
