@@ -33,15 +33,26 @@ log10(myNumber)
 
 
 ```{r echo=TRUE, include=TRUE}
-# log10
+# Natural log
 log2(myNumber)
 ```
+
 ```{r echo=TRUE, include=TRUE}
+
 myNumber * 3
+
+# square root
+sqrt(myNumber)
+
+```
+```{r echo=TRUE, include=TRUE}
+#Area of the circle formula
+Area_Circle <- (pi*20^2)
+
+print(Area_Circle)
 ```
 # Session Information
-
-```{r sessionInfo, echo=FALSE, include=TRUE}
+```
 pander::pander(sessionInfo())
 ```
 
