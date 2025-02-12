@@ -9,7 +9,7 @@ output:
 
 ```{r load libraries, include=FALSE}
 # run this line (uncomment) to install readr from CRAN:
-# install.packages("readr")
+install.packages("readr")
 
 # make sure your R has this library loaded, if not install it (see lines above).
 # Also, RStudio will offer to install it for you if it finds you try to load it if you haven't installed it yet.
@@ -31,8 +31,10 @@ Try to play around with Rmarkdown. You can find a cheatsheet in RStudio under He
 
 ![This is a screenshot showing where you find the Rmd cheatsheets](../img/CheatsheetsInRStudio.png){width=350px}
 *RStudio has also linked Cheatsheets for Rmarkdown in the Help section*
-
-You may include any other picture or do any other thing you like.
+```{r code}
+#the file is called rmarkdown.pdf -z
+#You may include any other picture or do any other thing you like.
+```
 
 # Session Information
 
